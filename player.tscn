@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj3c3xvffr3vn"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_ogmfn"]
+[ext_resource type="Texture2D" uid="uid://d38vl4pf3spfp" path="res://assets/player_00.png" id="1_u5rax"]
+[ext_resource type="Texture2D" uid="uid://hq0fc2nycy3x" path="res://assets/player_01.png" id="2_5v46x"]
+[ext_resource type="Texture2D" uid="uid://dsjhoaqgg3dka" path="res://assets/player_02.png" id="3_t22gj"]
+[ext_resource type="Texture2D" uid="uid://xiokinubwc2p" path="res://assets/player_03.png" id="4_pjrak"]
+[ext_resource type="AudioStream" uid="uid://bhgge2jbdbash" path="res://assets/jump.wav" id="5_h5uoq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksfpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u5rax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5v46x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t22gj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pjrak")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rb0nd"]
+radius = 27.0
+height = 100.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ogmfn")
+
+[node name="SoundJump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h5uoq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ksfpn")
+frame_progress = 0.823988
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_rb0nd")
+debug_color = Color(0.7, 0.7, 0.7, 0)

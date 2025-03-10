@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0lff18ulthe2"]
+
+[ext_resource type="AudioStream" uid="uid://b4v75v03st0nj" path="res://assets/music.ogg" id="1_bkmeh"]
+[ext_resource type="Texture2D" uid="uid://de0ndanh3mcqt" path="res://assets/background.png" id="1_se6sg"]
+[ext_resource type="PackedScene" uid="uid://hulhkcliv7av" path="res://box.tscn" id="2_32m8x"]
+[ext_resource type="PackedScene" uid="uid://bj3c3xvffr3vn" path="res://player.tscn" id="3_pae8w"]
+[ext_resource type="PackedScene" uid="uid://rpmwph3xhtp" path="res://ground.tscn" id="4_ecr5k"]
+
+[node name="world" type="Node2D"]
+position = Vector2(411, 63)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_bkmeh")
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -416.0
+offset_top = -64.0
+offset_right = 608.0
+offset_bottom = 536.0
+texture = ExtResource("1_se6sg")
+
+[node name="box" parent="." instance=ExtResource("2_32m8x")]
+position = Vector2(274, 290)
+
+[node name="box3" parent="." instance=ExtResource("2_32m8x")]
+position = Vector2(455, 287)
+
+[node name="box4" parent="." instance=ExtResource("2_32m8x")]
+position = Vector2(361, 204)
+
+[node name="Player" parent="." instance=ExtResource("3_pae8w")]
+position = Vector2(106, 366)
+
+[node name="ground" parent="." instance=ExtResource("4_ecr5k")]
+position = Vector2(105, 502)
+
+[node name="box2" parent="." instance=ExtResource("2_32m8x")]
+position = Vector2(359, 305)
